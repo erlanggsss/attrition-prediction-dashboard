@@ -60,7 +60,7 @@ def main():
     - PercentSalaryHike: Persentase kenaikan gaji
     """
     # Input data baru (misalnya, data yang diberikan oleh pengguna)
-    new_employee_raw = pd.DataFrame({
+    employee_raw = pd.DataFrame({
     'Age': [34],
     'BusinessTravel': [1],
     'DailyRate': [800],
@@ -101,17 +101,17 @@ def main():
                 'MonthlyIncome', 'MonthlyRate', 'NumCompaniesWorked', 'PercentSalaryHike']
 
     # Menyesuaikan input dengan fitur yang digunakan dalam model
-    new_employee_raw = new_employee_raw[features].values
+    employee_raw = employee_raw[features].values
 
     # Memuat model yang sudah disimpan (RF dan LR)
     rf_model_path = './models/rf_model.pkl'  
     lr_model_path = './models/lr_model.pkl'  
     
     # Prediksi dengan Random Forest
-    rf_predictions = load_model_and_predict(rf_model_path, new_employee_raw)
+    rf_predictions = load_model_and_predict(rf_model_path, employee_raw)
     
     # Prediksi dengan Logistic Regression
-    lr_predictions = load_model_and_predict(lr_model_path, new_employee_raw)
+    lr_predictions = load_model_and_predict(lr_model_path, employee_raw)
     
     # Menampilkan hasil prediksi
     print("\nHasil Prediksi Attrition:")
